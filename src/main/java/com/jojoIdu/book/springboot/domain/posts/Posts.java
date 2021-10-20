@@ -6,6 +6,7 @@ Entity 클래스에선 Setter를 따로 만들지 않는다.
 
 package com.jojoIdu.book.springboot.domain.posts;
 
+import com.jojoIdu.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import javax.persistence.*;
 //파라미터가 없는 생성자를 자동 생성 public Posts(){}
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity { //BaseTimeEntity 상속
     //Pk
     @Id
     //PK의 생성규칙
