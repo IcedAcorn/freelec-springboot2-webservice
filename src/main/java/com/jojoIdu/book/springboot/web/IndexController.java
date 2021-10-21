@@ -1,5 +1,6 @@
 package com.jojoIdu.book.springboot.web;
 
+import com.jojoIdu.book.springboot.config.auth.LoginUser;
 import com.jojoIdu.book.springboot.config.auth.dto.SessionUser;
 import com.jojoIdu.book.springboot.service.posts.PostsService;
 import com.jojoIdu.book.springboot.web.dto.PostsResponseDto;
@@ -29,11 +30,11 @@ public class IndexController {
 
     @GetMapping("/")
     //Model : 서버 템플릿 엔진에서 사용할 수 있는 객체를 저장할 수 있음
-    public String index(Model model){
+    //기존 SessionUser user = (SessionUser) httpSession.getAttribute("user"); 로 불러오던 세션정보값을
+    //@LoginUser를 사용하여 개선
+    public String index(Model model, @LoginUser SessionUser user){
         //postsService.findAllDesc()의 결과를 posts로 뷰에 전달
         model.addAttribute("posts", postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if(user != null){
             model.addAttribute("userName", user.getName());
