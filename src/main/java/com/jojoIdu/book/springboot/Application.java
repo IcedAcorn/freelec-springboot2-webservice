@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 //Jpa Auditing 활성화
-@EnableJpaAuditing
+//@EnableJpaAuditing -> 분리를 위하 삭제
 //스프링 부트의 자동설정 어노테이션
 //@SpringBootApplication 위치부터 설정을 읽어가기 때문에 메인클래스는 항상 최상단에 위치해야 함
 @SpringBootApplication
